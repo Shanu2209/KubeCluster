@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: vpromq01
-        image: rabitmq:3.8.3-management-alpine
+        image: rabitmq
         ports:
         - containerPort: 15672
         env:
