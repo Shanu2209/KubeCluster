@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vprodb
-  labels: 
+  labels:
     app: vprodb
 spec:
   selector:
     matchLabels:
       app: vprodb
-  replicas: 1 
+  replicas: 1
   template:
     metadata:
       labels:
         app: vprodb
-    spec:  
+    spec:
       containers:
         - name: vprofiledb
           image: vprofile/vprofiledb:V1
@@ -34,16 +34,11 @@ spec:
         - name: vprodb
           awsElasticBlockStore:
             volumeID: vol-05b1e0e9c18095c6e
-            fsType: ext4   
+            fsType: ext4
       initContainers:
-         -  name: busybox
-            image: busybox
-            args: ['rm', '-rf', "/var/lib/mysql/lost+found"]
-            volumeMounts:
+         - name: busybox
+           image: busybox
+           args: ['rm', '-rf', "/var/lib/mysql/lost+found"]
+           volumeMounts:
             - name: vprodb
               mountPath: /var/lib/mysql
-       
-
-          
-            
-
