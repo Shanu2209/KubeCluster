@@ -17,7 +17,7 @@ spec:
         image: vprofile/vprofileapp
         ports:
         - containerPort: 8080
-    initContainers:
+     initContainers:
         - name: init-mydb
           image: busybox
           command: ['sh', '-c', 'until nslookup mydb; do echo waiting for mydb; sleep 2; done;']
