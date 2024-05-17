@@ -17,12 +17,12 @@ spec:
         image: rabitmq:3.8.3-management-alpine
         ports:
         - containerPort: 15672
-      env:
-      - name: RABBITMQ_DEFAULT_USER
-        value: "guest"
-      - name: RABBITMQ_DEFAULT_PASS
-        valueFrom:
-          secretKeyRef:
-            name:  my-secrets
-            key: rqpassword
-
+        env:
+        - name: RABBITMQ_DEFAULT_USER
+          value: "guest"
+        - name: RABBITMQ_DEFAULT_PASS
+          valueFrom:
+            secretKeyRef:
+              name:  my-secrets
+              key: rqpassword
+  
