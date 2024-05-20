@@ -29,11 +29,11 @@ spec:
                 name: my-secrets
                 key: dbpassword
       nodeSelector:
-        zone: ap-south-1a
+        zone: ap-south-1b
       volumes:
         - name: vprodb
           awsElasticBlockStore:
-            volumeID: vol-05b1e0e9c18095c6e
+            volumeID: vol-0496c76a63d51c621
             fsType: ext4
       initContainers:
          - name: busybox
